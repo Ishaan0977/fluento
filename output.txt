@@ -1,0 +1,257 @@
+✓ .gitignore created
+Reinitialized existing Git repository in /home/base/ml-projects/fluento/.git/
+✓ Git initialized
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+[master 25874f3] Fix: audio codec suffix validation, VAD parameters, session page hook ordering
+ 1 file changed, 195 insertions(+)
+ create mode 100644 output.txt
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   output.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   output.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[master 81528c1] Final: complete Fluento v1.0 — AI powered english speaking coach
+ 1 file changed, 17 insertions(+)
+
+✅ All commits created successfully
+
+Commit breakdown:
+  Ishaan  (ishaan.twm@gmail.com)     — Backend lead + Full stack
+  Sanchit (sanchitpdev@gmail.com)    — Backend + Database
+  Theertha (theerthsprasad123@gmail.com) — Frontend lead
+
+Next steps:
+  1. Create a new repo on GitHub
+  2. Run: git remote add origin https://github.com/YOUR_USERNAME/fluento.git
+  3. Run: git push -u origin main
+
+81528c1 Final: complete Fluento v1.0 — AI powered english speaking coach
+25874f3 Fix: audio codec suffix validation, VAD parameters, session page hook ordering
+0ee04d3 Fix: audio codec suffix validation, VAD parameters, session page hook ordering
+72c7351 Frontend: add public assets and project README
+55f1b17 Backend: add auth router stub with Google OAuth structure ready for production
+647ccc7 Frontend: goal based flow — goals page with bubble select, difficulty slider, AI topics list
+c659b82 Frontend: reading practice — dual cursor system, Web Speech API, high water mark ratchet, skip detection
+3d841af Backend: add utility functions for audio validation and response formatting
+357cd70 Frontend: session history page with filter by practice type and expandable rows
+389fc3c Frontend: analytics dashboard — streak, scores, activity grid, sparkline chart
+aa09336 Frontend: vocabulary practice — AI generated words, spinner selection, recording flow and feedback
+3bd402c Frontend: speaking session — MediaRecorder, Whisper transcription, AI feedback display
+3a3c5c4 Frontend: topic practice page with spinner, AI structure hints, vocabulary suggestions and timer
+8506c17 Frontend: add UserContext with localStorage persistence and typed API client
+bd631f6 Frontend: build onboarding flow — goals page with bubble multi-select and difficulty slider
+acec6af Backend: add analytics service and streak calculation logic
+63071b6 Backend: add topics router — AI topic generation, vocabulary, hints and paragraph endpoints
+d48b915 Backend: define Pydantic request and response models for all endpoints
+01e1c15 Backend: add analytics, history and sessions routers with filtering and pagination
+90088d5 Frontend: add ThemeToggle, RecordButton, AudioWaveform, FeedbackCard components
+5b62f79 Frontend: build home page with mode cards grid layout
+3824a42 Backend: implement Groq LLaMA evaluation service with retry logic and structured JSON output
+b73e132 Backend: add audio upload endpoint with file validation and cleanup
+611743d Backend: integrate faster-whisper for local speech transcription
+440ed34 Backend: implement CRUD operations for users, sessions and streaks
+83a2e92 Frontend: add base layout, global styles, DM Serif Display font setup
+0209948 Frontend: initialise Next.js 16 project with TypeScript and Tailwind
+44fa455 Backend: add SQLAlchemy models — User, Session, SpeechResult, Streak
+66e5b3d Backend: initial FastAPI app setup with core config and dependencies
+d6504ed Initial commit — project setup and .gitignore
