@@ -114,13 +114,6 @@ Structured JSON (scores, corrections, rewrite)
 - 8-word lookahead algorithm for skip detection
 - Separation of interim vs final speech recognition results
 
----
-
-## 📊 Upcoming
-
-- Multiplayer reading mode (real-time cursor racing via WebSockets)
-- Advanced analytics dashboard
-- Personalized learning paths
 
 ---
 
