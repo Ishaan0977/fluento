@@ -1,15 +1,13 @@
+import type { NextConfig } from "next";
 
-
-export default nextConfig;
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
+  /* config options here */
+  trailingSlash: true,
   typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete 
+    // even if your project has type errors.
+    // !! WARN !!
     ignoreBuildErrors: true,
   },
-  experimental: {
-    turbo: {
-      root: __dirname,
-    }
-  }
-}
-export default nextConfig
+};
