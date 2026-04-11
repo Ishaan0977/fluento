@@ -40,8 +40,8 @@ function TopicsInner() {
     setTopics([])
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/topics/generate`,
-        {
+        `${process.env.NEXT_PUBLIC_API_URL || 'https://fluento-l2oj.onrender.com/api/v1'}/topics/generate`,
+	{
           method:  'POST',
           headers: { 'Content-Type': 'application/json' },
           body:    JSON.stringify({ goals, difficulty, count: 6 }),
