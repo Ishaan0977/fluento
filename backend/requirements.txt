@@ -31,3 +31,4 @@ python-dotenv==1.0.1
 # ── Utilities ─────────────────────────────────────────────────────────────
 # annotated-types is required by pydantic v2 internally
 annotated-types==0.7.0
+groq
