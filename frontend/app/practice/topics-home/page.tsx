@@ -180,7 +180,7 @@ export default function TopicsHomePage() {
         <motion.div
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           {/* Header */}
           <div style={{ textAlign: 'center', marginTop: 'clamp(5rem, 10vw, 7rem)', marginBottom: '3.5rem' }}>
@@ -215,7 +215,7 @@ export default function TopicsHomePage() {
               <motion.div
                 style={{ width: '100%', maxWidth: '28rem' }}
                 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
               >
                 {/* Topic name */}
                 <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>

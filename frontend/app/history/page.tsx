@@ -69,7 +69,7 @@ function SessionRow({ session }: { session: HistoryItem }) {
         {open && (
           <motion.div
             initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.35, ease: "easeOut" }}
             style={{ overflow: 'hidden' }}
           >
             <div style={{ paddingBottom: '1.75rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -89,7 +89,7 @@ function SessionRow({ session }: { session: HistoryItem }) {
                       <div style={{ height: '1px', width: '100%', position: 'relative', background: 'hsl(var(--border))' }}>
                         <motion.div style={{ position: 'absolute', inset: 0, right: 'auto', background: 'hsl(var(--foreground))' }}
                           initial={{ width: 0 }} animate={{ width: `${m.score}%` }}
-                          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} />
+                          transition={{ duration: 0.7, ease: "easeOut" }} />
                       </div>
                     </div>
                   ))}
@@ -134,7 +134,7 @@ export default function HistoryPage() {
 
       <motion.div style={{ paddingTop: '5rem', marginBottom: '2.5rem' }}
         initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <p style={{ ...ey, marginBottom: '1rem' }}>Speech History</p>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 6vw, 3.6rem)', letterSpacing: '-0.02em', lineHeight: 1.1 }}>

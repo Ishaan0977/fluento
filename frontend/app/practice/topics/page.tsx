@@ -81,7 +81,7 @@ function TopicsInner() {
       <motion.div
         style={{ paddingTop: 'clamp(5rem, 12vw, 8rem)', marginBottom: '3rem' }}
         initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.65, ease: "easeOut" }}
       >
         <p style={{ ...ey, marginBottom: '1.25rem' }}>Step 3 of 3</p>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.2rem, 7vw, 4rem)', letterSpacing: '-0.02em', lineHeight: 1.05, marginBottom: '1rem' }}>
@@ -142,7 +142,7 @@ function TopicsInner() {
                 onClick={() => handlePick(topic)}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.07, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ delay: i * 0.07, duration: 0.4, ease: "easeOut" }}
                 whileHover={{ x: 5 }}
                 style={{ textAlign: 'left', padding: '1.25rem 1.5rem', border: '1px solid hsl(var(--border))', background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', transition: 'border-color 0.2s', gap: '1rem' }}
                 onMouseEnter={e => (e.currentTarget.style.borderColor = 'hsl(var(--foreground))')}

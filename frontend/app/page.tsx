@@ -20,7 +20,7 @@ const container = {
 }
 const item = {
   hidden: { opacity: 0, y: 22 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.55, ease: ['easeOut'] } },
 }
 
 const DIFFICULTY_LABELS: Record<string, string> = {
@@ -48,7 +48,7 @@ export default function HomePage() {
       <motion.div
         style={{ textAlign: 'center', marginTop: 'clamp(5rem, 10vw, 7rem)', marginBottom: 'clamp(4rem, 8vw, 5rem)', maxWidth: '40rem' }}
         initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.7, ease: ['easeOut'] }}
       >
         <p style={{ fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'hsl(var(--muted-foreground))', marginBottom: '1.5rem' }}>
           AI Communication Training

@@ -227,7 +227,7 @@ export default function VocabularyPracticePage() {
           <motion.div key="select"
             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 'calc(100vh - 4rem)', width: '100%' }}
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
               <p style={{ ...ey, marginBottom: '1rem' }}>Vocabulary Practice</p>
@@ -255,7 +255,7 @@ export default function VocabularyPracticePage() {
                 <motion.div key={selected.word}
                   style={{ marginTop: '3.5rem', width: '100%', maxWidth: '22rem' }}
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
                 >
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', marginBottom: '1rem' }}>
                     <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 7vw, 3.2rem)', letterSpacing: '-0.02em', lineHeight: 1 }}>
@@ -308,7 +308,7 @@ export default function VocabularyPracticePage() {
           <motion.div key="record"
             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 'calc(100vh - 4rem)', width: '100%' }}
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <motion.div
               style={{ width: '100%', maxWidth: '28rem', padding: '2rem 2.5rem', border: '1px solid hsl(var(--border))', background: 'hsl(var(--card))', marginBottom: '3rem', textAlign: 'center' }}
@@ -385,7 +385,7 @@ export default function VocabularyPracticePage() {
           <motion.div key="feedback"
             style={{ width: '100%', maxWidth: '36rem', paddingTop: '3.5rem', paddingBottom: '6rem' }}
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <p style={{ ...ey, marginBottom: '0.75rem' }}>Vocabulary Feedback</p>

@@ -106,7 +106,7 @@ export default function TopicPracticePage() {
 
       <motion.div style={{ textAlign: 'center', marginTop: 'clamp(5rem, 10vw, 7rem)', marginBottom: '3.5rem' }}
         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <p style={{ ...ey, marginBottom: '1rem' }}>Topic Practice</p>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 6vw, 3.8rem)', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
@@ -125,7 +125,7 @@ export default function TopicPracticePage() {
         {selected && (
           <motion.div style={{ width: '100%', maxWidth: '28rem', marginTop: '2rem' }}
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
           >
             {/* Topic header */}
             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>

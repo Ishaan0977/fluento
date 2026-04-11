@@ -77,7 +77,7 @@ export default function GoalsPage() {
         style={{ paddingTop: 'clamp(5rem, 12vw, 8rem)', marginBottom: '3rem' }}
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.65, ease: "easeOut" }}
       >
         <p style={{ ...ey, marginBottom: '1.25rem' }}>Step 1 of 3</p>
         <h1
@@ -103,7 +103,7 @@ export default function GoalsPage() {
         style={{ marginBottom: '2.5rem' }}
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ delay: 0.15, duration: 0.5, ease: "easeOut" }}
       >
         <textarea
           value={inputValue}

@@ -24,7 +24,7 @@ const RECENT = [
 
 const ey = { fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase' as const, color: 'hsl(var(--muted-foreground))' }
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } } }
-const item = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22,1,0.36,1] } } }
+const item = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: ["easeOut"] } } }
 
 function Sparkline({ values }: { values: number[] }) {
   const W=300, H=64, pad=4

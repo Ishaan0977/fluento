@@ -80,7 +80,7 @@ export default function OnboardingPage() {
         {step === 'goals' && (
           <motion.div key="goals"
             initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.4, ease: ["easeOut"] }}
           >
             <div style={{ paddingTop: 'clamp(5rem, 12vw, 8rem)', marginBottom: '3rem' }}>
               <p style={{ ...ey, marginBottom: '1.25rem' }}>Welcome to Fluento · Step 1 of 2</p>
@@ -154,7 +154,7 @@ export default function OnboardingPage() {
         {step === 'difficulty' && (
           <motion.div key="difficulty"
             initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.4, ease: ["easeOut"] }}
           >
             <div style={{ paddingTop: 'clamp(5rem, 12vw, 8rem)', marginBottom: '4rem' }}>
               <p style={{ ...ey, marginBottom: '1.25rem' }}>Step 2 of 2</p>

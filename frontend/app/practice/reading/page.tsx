@@ -311,7 +311,7 @@ export default function ReadingPracticePage() {
         )}
 
         {phase === 'ready' && paragraphData && (
-          <motion.div key="ready" style={{ maxWidth: '44rem', margin: '0 auto', paddingTop: 'clamp(5rem, 10vw, 7rem)' }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
+          <motion.div key="ready" style={{ maxWidth: '44rem', margin: '0 auto', paddingTop: 'clamp(5rem, 10vw, 7rem)' }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.6, ease: "easeOut" }}>
             <div style={{ marginBottom: '2.5rem' }}>
               <p style={{ ...ey, marginBottom: '0.75rem' }}>Reading Practice</p>
               <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '0.5rem' }}>{paragraphData.topic}</h1>
@@ -343,7 +343,7 @@ export default function ReadingPracticePage() {
         {phase === 'countdown' && (
           <motion.div key="countdown" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <AnimatePresence mode="wait">
-              <motion.span key={countdown} style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(8rem, 20vw, 14rem)', lineHeight: 1, letterSpacing: '-0.04em' }} initial={{ scale: 1.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.6, opacity: 0 }} transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}>{countdown}</motion.span>
+              <motion.span key={countdown} style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(8rem, 20vw, 14rem)', lineHeight: 1, letterSpacing: '-0.04em' }} initial={{ scale: 1.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.6, opacity: 0 }} transition={{ duration: 0.35, ease: "easeOut" }}>{countdown}</motion.span>
             </AnimatePresence>
             <p style={{ ...ey, marginTop: '2rem' }}>Get ready to speak</p>
           </motion.div>
@@ -374,7 +374,7 @@ export default function ReadingPracticePage() {
         )}
 
         {phase === 'finished' && result && paragraphData && (
-          <motion.div key="results" style={{ maxWidth: '36rem', margin: '0 auto', paddingTop: 'clamp(5rem, 10vw, 7rem)', paddingBottom: '6rem' }} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
+          <motion.div key="results" style={{ maxWidth: '36rem', margin: '0 auto', paddingTop: 'clamp(5rem, 10vw, 7rem)', paddingBottom: '6rem' }} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }}>
             <div style={{ marginBottom: '3rem' }}>
               <p style={{ ...ey, marginBottom: '0.75rem' }}>Reading Complete</p>
               <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 6vw, 3.6rem)', letterSpacing: '-0.02em', lineHeight: 1.1 }}>{paragraphData.topic}</h1>

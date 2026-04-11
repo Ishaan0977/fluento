@@ -164,7 +164,7 @@ function SessionInner() {
           >
             <motion.div style={{ textAlign: 'center', marginBottom: '4rem' }}
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <p style={{ ...ey, marginBottom: '0.75rem' }}>Speaking about</p>
               <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 5vw, 3.2rem)', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
@@ -248,7 +248,7 @@ function SessionInner() {
           <motion.div key="feedback"
             style={{ width: '100%', maxWidth: '36rem', paddingTop: '3.5rem', paddingBottom: '6rem' }}
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <p style={{ ...ey, marginBottom: '0.75rem' }}>AI Feedback</p>

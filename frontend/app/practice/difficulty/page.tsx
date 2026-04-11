@@ -78,7 +78,7 @@ function DifficultyInner() {
         style={{ paddingTop: 'clamp(5rem, 12vw, 8rem)', marginBottom: '4rem' }}
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.65, ease: "easeOut" }}
       >
         <p style={{ ...ey, marginBottom: '1.25rem' }}>Step 2 of 3</p>
         <h1
@@ -202,7 +202,7 @@ function DifficultyInner() {
         key={activeLevel.value}
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
         style={{
           padding: '1.75rem 2rem',
           border: '1px solid hsl(var(--foreground))',
