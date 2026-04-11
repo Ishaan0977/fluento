@@ -17,7 +17,7 @@ def transcribe_audio(audio_path: str) -> TranscriptionResponse:
 
     try:
         from groq import Groq
-        client = Groq(api_key=settings.GROQ_API_KEY)
+        client = Groq(api_key=settings.LLM_API_KEY)
 
         with open(path, "rb") as f:
             response = client.audio.transcriptions.create(
