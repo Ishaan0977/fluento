@@ -1,12 +1,14 @@
 'use client'
 
 import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const btnRef = useRef<HTMLButtonElement>(null)
 
   // Avoid hydration mismatch — only render after mount
   useEffect(() => setMounted(true), [])
@@ -14,9 +16,43 @@ export function ThemeToggle() {
 
   const isDark = theme === 'dark'
 
+  // Expand the new theme as an ink-drop circle from the button (View Transitions API)
+  const toggle = () => {
+    const next = isDark ? 'light' : 'dark'
+    const doc = document as Document & {
+      startViewTransition?: (cb: () => void) => { ready: Promise<void> }
+    }
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (!doc.startViewTransition || reduce) {
+      setTheme(next)
+      return
+    }
+
+    const rect = btnRef.current?.getBoundingClientRect()
+    const x = rect ? rect.left + rect.width / 2 : window.innerWidth / 2
+    const y = rect ? rect.top + rect.height / 2 : window.innerHeight / 2
+    const end = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y))
+
+    const transition = doc.startViewTransition(() => {
+      flushSync(() => setTheme(next))
+    })
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${end}px at ${x}px ${y}px)`,
+          ],
+        },
+        { duration: 520, easing: 'cubic-bezier(0.65,0,0.35,1)', pseudoElement: '::view-transition-new(root)' },
+      )
+    })
+  }
+
   return (
     <motion.button
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      ref={btnRef}
+      onClick={toggle}
       aria-label="Toggle theme"
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.90 }}

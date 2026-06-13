@@ -9,6 +9,8 @@ interface RecordButtonProps {
   onStart:  () => void
   onStop:   () => void
   disabled?: boolean
+  /** live mic level 0..1 — drives the reactive halo while recording */
+  level?:   number
 }
 
 /* ─── Mic SVG icon ───────────────────────────────────────────────────────── */
@@ -51,7 +53,7 @@ function SpinnerIcon({ size = 22 }: { size?: number }) {
 }
 
 /* ─── Component ──────────────────────────────────────────────────────────── */
-export function RecordButton({ state, onStart, onStop, disabled }: RecordButtonProps) {
+export function RecordButton({ state, onStart, onStop, disabled, level = 0 }: RecordButtonProps) {
   const isRecording  = state === 'recording'
   const isProcessing = state === 'processing'
   const isIdle       = state === 'idle'
@@ -88,6 +90,17 @@ export function RecordButton({ state, onStart, onStop, disabled }: RecordButtonP
           </>
         )}
       </AnimatePresence>
+
+      {/* ── Live mic-reactive halo ── */}
+      {isRecording && (
+        <motion.span
+          aria-hidden
+          className="absolute rounded-full"
+          style={{ width: 88, height: 88, background: 'hsl(var(--foreground) / 0.16)' }}
+          animate={{ scale: 1 + level * 0.95, opacity: 0.2 + level * 0.6 }}
+          transition={{ type: 'spring', stiffness: 260, damping: 18 }}
+        />
+      )}
 
       {/* ── Main button ── */}
       <motion.button

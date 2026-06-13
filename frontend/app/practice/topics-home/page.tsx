@@ -57,7 +57,7 @@ export default function TopicsHomePage() {
 
     try {
       const res = await fetch(
-        `${'https://fluento-l2oj.onrender.com/api/v1'}/topics/generate`,
+        `/api/v1/topics/generate`,
 	{
           method:  'POST',
           headers: { 'Content-Type': 'application/json' },

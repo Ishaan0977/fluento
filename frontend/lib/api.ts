@@ -1,4 +1,5 @@
-const API_BASE = 'https://fluento-l2oj.onrender.com/api/v1'
+// Relative path — proxied to the backend by next.config rewrites (no CORS)
+const API_BASE = '/api/v1'
 
 // ── Types (mirror backend response models exactly) ────────────────────────
 

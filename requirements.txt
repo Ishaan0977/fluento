@@ -16,10 +16,10 @@ aiofiles==24.1.0
 # ── HTTP client (LLM API calls) ───────────────────────────────────────────
 httpx==0.28.0
 
-# ── Whisper speech-to-text ────────────────────────────────────────────────
-# faster-whisper is the preferred backend (faster + lighter)
-# openai-whisper is the fallback if faster-whisper fails to install
-faster-whisper==1.1.0
+# ── Speech-to-text ────────────────────────────────────────────────────────
+# Transcription runs through Groq's hosted Whisper API
+# (see backend/services/speech_to_text.py), so no local Whisper/ffmpeg needed.
+groq>=0.9.0
 
 # ── Auth (JWT + password hashing — used when OAuth is wired) ─────────────
 python-jose[cryptography]==3.3.0

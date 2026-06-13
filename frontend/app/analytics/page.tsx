@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { CountUp } from '@/components/ui/CountUp'
 
 const STREAK_DAYS = 14
 const ACTIVITY: (0 | 1)[][] = [
@@ -69,9 +70,11 @@ export default function AnalyticsPage() {
 
         {/* Stats */}
         <motion.div variants={item} style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', borderTop:'1px solid hsl(var(--border))' }}>
-          {[{label:'Day streak',value:`${STREAK_DAYS}🔥`},{label:'Sessions',value:'47'},{label:'Avg. score',value:'81'}].map((s,i)=>(
+          {[{label:'Day streak',value:STREAK_DAYS,suffix:'🔥'},{label:'Sessions',value:47,suffix:''},{label:'Avg. score',value:81,suffix:''}].map((s,i)=>(
             <div key={i} style={{ padding:'1.5rem 1.5rem 1.5rem 0', borderBottom:'1px solid hsl(var(--border))', borderRight:i<2?'1px solid hsl(var(--border))':'none' }}>
-              <p style={{ fontFamily:'var(--font-display)', fontSize:'clamp(1.8rem, 4vw, 2.5rem)', lineHeight:1, marginBottom:'0.4rem' }}>{s.value}</p>
+              <p style={{ fontFamily:'var(--font-display)', fontSize:'clamp(1.8rem, 4vw, 2.5rem)', lineHeight:1, marginBottom:'0.4rem' }}>
+                <CountUp value={s.value} suffix={s.suffix} duration={1200} />
+              </p>
               <p style={{ ...ey }}>{s.label}</p>
             </div>
           ))}
@@ -138,7 +141,9 @@ export default function AnalyticsPage() {
                 <p style={{ fontSize:'1rem', marginBottom:'0.2rem' }}>{s.topic}</p>
                 <p style={{ fontSize:'0.82rem', color:'hsl(var(--muted-foreground))' }}>{s.date} · {s.duration}</p>
               </div>
-              <span style={{ fontFamily:'var(--font-display)', fontSize:'1.4rem', letterSpacing:'-0.01em' }}>{s.score}</span>
+              <span style={{ fontFamily:'var(--font-display)', fontSize:'1.4rem', letterSpacing:'-0.01em' }}>
+                <CountUp value={s.score} duration={1000} />
+              </span>
             </div>
           ))}
         </motion.section>

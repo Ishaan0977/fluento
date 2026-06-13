@@ -75,6 +75,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins_list,
+    allow_origin_regex=settings.CORS_ORIGIN_REGEX or None,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -85,19 +86,14 @@ app.add_middleware(
 # Routers
 # ---------------------------------------------------------------------------
 
-from routers.audio import router as audio_router       # noqa: E402
+from routers.audio     import router as audio_router       # noqa: E402
+from routers.topics    import router as topics_router       # noqa: E402
+from routers.sessions  import router as sessions_router     # noqa: E402
+from routers.analytics import router as analytics_router    # noqa: E402
+from routers.history   import router as history_router      # noqa: E402
 
-app.include_router(audio_router, prefix="/api/v1")
-
-# Future routers — uncomment as they are implemented:
-from routers.audio     import router as audio_router
-from routers.sessions  import router as sessions_router
-from routers.analytics import router as analytics_router
-from routers.history   import router as history_router
-from routers.topics import router as topics_router
-
-app.include_router(topics_router, prefix="/api/v1")
 app.include_router(audio_router,     prefix="/api/v1")
+app.include_router(topics_router,    prefix="/api/v1")
 app.include_router(sessions_router,  prefix="/api/v1")
 app.include_router(analytics_router, prefix="/api/v1")
 app.include_router(history_router,   prefix="/api/v1")

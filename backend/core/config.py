@@ -46,9 +46,17 @@ class Settings(BaseSettings):
     # Comma-separated string in .env: "http://localhost:3000,https://myapp.com"
     CORS_ORIGINS: str = "http://localhost:3000"
 
+    # Regex matching additional allowed origins. Additive to CORS_ORIGINS.
+    # This lets every Vercel deploy (production + preview builds) reach the API
+    # without hardcoding a URL that changes whenever the Vercel project is
+    # renamed (e.g. fluento-ruby -> fluento-v1). Matches origins such as
+    # https://fluento-v1.vercel.app and https://fluento-v1-git-main-foo.vercel.app.
+    # Set to "" to disable.
+    CORS_ORIGIN_REGEX: str = r"https://fluento.*\.vercel\.app"
+
     @property
     def cors_origins_list(self) -> List[str]:
-        return [o.strip() for o in self.CORS_ORIGINS.split(",")]
+        return [o.strip() for o in self.CORS_ORIGINS.split(",") if o.strip()]
 
     # ── Audio ─────────────────────────────────────────────────────────────
     AUDIO_UPLOAD_DIR: str = "./audio_uploads"

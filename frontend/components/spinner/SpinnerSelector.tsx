@@ -18,6 +18,16 @@ function yFromIndex(idx: number, itemH: number, containerH: number) {
   return -(idx * itemH) + (containerH - itemH) / 2
 }
 
+// Scale the label down as it gets longer so multi-word topics stay on one or
+// two tight lines (reading as a single phrase) instead of wrapping with big gaps.
+function fontSizeFor(label: string): string {
+  const n = label.trim().length
+  if (n <= 12) return 'clamp(1.45rem, 5vw, 1.95rem)'
+  if (n <= 20) return 'clamp(1.2rem, 4vw, 1.55rem)'
+  if (n <= 30) return 'clamp(1rem, 3.4vw, 1.25rem)'
+  return 'clamp(0.85rem, 3vw, 1.05rem)'
+}
+
 export function SpinnerSelector({ items, onSelect, itemHeight=80, visibleCount=5 }: SpinnerSelectorProps) {
   const REPEATS    = 20
   const containerH = itemHeight * visibleCount
@@ -66,11 +76,17 @@ export function SpinnerSelector({ items, onSelect, itemHeight=80, visibleCount=5
           {longList.map((it, i) => {
             const isCenter = i === currentIdx.current
             return (
-              <div key={i} style={{ height:itemHeight, display:'flex', alignItems:'center', justifyContent:'center', userSelect:'none' }}>
+              <div key={i} style={{ height:itemHeight, display:'flex', alignItems:'center', justifyContent:'center', userSelect:'none', overflow:'hidden', padding:'0 1.25rem' }}>
                 <span style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(1.5rem, 5vw, 2rem)',
+                  fontSize: fontSizeFor(it.label),
+                  lineHeight: 1.1,
                   letterSpacing: '-0.01em',
+                  textAlign: 'center',
+                  display: '-webkit-box',
+                  WebkitBoxOrient: 'vertical',
+                  WebkitLineClamp: 2,
+                  overflow: 'hidden',
                   color: isCenter ? 'hsl(var(--foreground))' : 'hsl(var(--foreground) / 0.2)',
                   transition: 'color 0.3s',
                 }}>

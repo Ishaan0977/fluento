@@ -1,4 +1,4 @@
-# Fluento - https://fluento-ruby.vercel.app/
+# Fluento - https://fluento-v1.vercel.app/
 
 AI-powered speaking practice built for real goals — not generic vocabulary.
 

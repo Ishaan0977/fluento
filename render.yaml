@@ -2,8 +2,12 @@ services:
   - type: web
     name: fluento-backend
     runtime: python
-    buildCommand: "apt-get install -y ffmpeg && pip install -r requirements.txt"
+    buildCommand: "pip install -r requirements.txt"
     startCommand: "cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT"
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.0
+      # Frontend origins allowed to call this API. The new Vercel URL is also
+      # matched by CORS_ORIGIN_REGEX in code, so a future rename won't break CORS.
+      - key: CORS_ORIGINS
+        value: "https://fluento-v1.vercel.app,http://localhost:3000"

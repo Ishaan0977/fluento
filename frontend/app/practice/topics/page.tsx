@@ -4,6 +4,7 @@ import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ScrambleText } from '@/components/ui/ScrambleText'
 
 interface TopicItem {
   label:    string
@@ -40,7 +41,7 @@ function TopicsInner() {
     setTopics([])
     try {
       const res = await fetch(
-        `${'https://fluento-l2oj.onrender.com/api/v1'}/topics/generate`,
+        `/api/v1/topics/generate`,
 	{
           method:  'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -85,7 +86,7 @@ function TopicsInner() {
       >
         <p style={{ ...ey, marginBottom: '1.25rem' }}>Step 3 of 3</p>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.2rem, 7vw, 4rem)', letterSpacing: '-0.02em', lineHeight: 1.05, marginBottom: '1rem' }}>
-          Your topics.
+          <ScrambleText text="Your topics." duration={800} />
         </h1>
         <p style={{ fontSize: '0.9rem', color: 'hsl(var(--muted-foreground))', lineHeight: 1.6 }}>
           {DIFFICULTY_LABELS[difficulty]} · {goals.length > 60 ? goals.slice(0, 60) + '…' : goals}
@@ -149,7 +150,9 @@ function TopicsInner() {
                 onMouseLeave={e => (e.currentTarget.style.borderColor = 'hsl(var(--border))')}
               >
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <p style={{ fontSize: '0.95rem', lineHeight: 1.4, marginBottom: '0.25rem' }}>{topic.label}</p>
+                  <p style={{ fontSize: '0.95rem', lineHeight: 1.4, marginBottom: '0.25rem' }}>
+                    <ScrambleText text={topic.label} duration={700} delay={i * 70} />
+                  </p>
                   <p style={{ ...ey }}>{topic.category}</p>
                   {topic.why && (
                     <p style={{ fontSize: '0.8rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.4rem', lineHeight: 1.55 }}>

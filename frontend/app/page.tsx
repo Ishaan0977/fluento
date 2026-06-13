@@ -2,9 +2,12 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, useRef, type MouseEvent } from 'react'
 import { motion } from 'framer-motion'
 import { useUser } from '@/lib/userContext'
+import { MagneticCard } from '@/components/ui/MagneticCard'
+import { Marquee } from '@/components/ui/Marquee'
+import { BlurInText } from '@/components/ui/BlurInText'
 
 const MODES = [
   { num: '01', title: 'Speaking Practice', desc: 'AI topics matched to your goal. Speak, get evaluated.',    href: '/practice/topics-home' },
@@ -33,6 +36,16 @@ export default function HomePage() {
   const { profile } = useUser()
   const router      = useRouter()
 
+  // Spotlight that trails the cursor across the mode grid
+  const gridRef = useRef<HTMLDivElement>(null)
+  const onGridMove = (e: MouseEvent) => {
+    const el = gridRef.current
+    if (!el) return
+    const r = el.getBoundingClientRect()
+    el.style.setProperty('--spot-x', `${e.clientX - r.left}px`)
+    el.style.setProperty('--spot-y', `${e.clientY - r.top}px`)
+  }
+
   // Redirect to onboarding on first visit
   useEffect(() => {
     if (!profile.setupDone) {
@@ -54,7 +67,17 @@ export default function HomePage() {
           AI Communication Training
         </p>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.8rem, 8vw, 5.5rem)', lineHeight: 1.05, letterSpacing: '-0.02em', marginBottom: '1.75rem' }}>
-          Speak better,<br /><em>every day.</em>
+          <BlurInText text="Speak better," />
+          <br />
+          <motion.em
+            className="shimmer"
+            style={{ display: 'inline-block' }}
+            initial={{ opacity: 0, filter: 'blur(12px)', y: 16 }}
+            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+            transition={{ delay: 0.55, duration: 0.6, ease: 'easeOut' }}
+          >
+            every day.
+          </motion.em>
         </h1>
 
         {/* Current goal context */}
@@ -71,31 +94,29 @@ export default function HomePage() {
       </motion.div>
 
       <motion.div
+        className="mode-grid"
+        ref={gridRef}
+        onMouseMove={onGridMove}
         style={{ width: '100%', maxWidth: '48rem', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', borderTop: '1px solid hsl(var(--border))', borderLeft: '1px solid hsl(var(--border))' }}
         variants={container} initial="hidden" animate="show"
       >
+        <div className="mode-grid__spot" aria-hidden />
         {MODES.map((mode) => (
           <motion.div key={mode.num} variants={item}>
-            <Link href={mode.href} className="mode-card">
-              <span className="card-num" style={{ display: 'block', fontSize: '0.7rem', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>
-                {mode.num}
-              </span>
-              <h2 className="card-title" style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', lineHeight: 1.2, letterSpacing: '-0.01em', marginBottom: '0.75rem' }}>
-                {mode.title}
-              </h2>
-              <p className="card-desc" style={{ fontSize: '0.95rem', lineHeight: 1.65 }}>
-                {mode.desc}
-              </p>
-              <div className="card-cta" style={{ marginTop: '2rem', fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                Start →
-              </div>
-            </Link>
+            <MagneticCard mode={mode} />
           </motion.div>
         ))}
       </motion.div>
 
+      <motion.div
+        style={{ width: '100%', maxWidth: '48rem', marginTop: '3.5rem' }}
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
+      >
+        <Marquee items={['Speak boldly', 'Think clearly', 'Sound confident', 'Practice daily']} speed={20} />
+      </motion.div>
+
       <motion.p
-        style={{ marginTop: '3.5rem', fontSize: '0.72rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'hsl(var(--muted-foreground))' }}
+        style={{ marginTop: '2.5rem', fontSize: '0.72rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'hsl(var(--muted-foreground))' }}
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}
       >
         Powered by Whisper · AI feedback

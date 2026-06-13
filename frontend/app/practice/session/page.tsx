@@ -54,6 +54,7 @@ function SessionInner() {
   const [feedback, setFeedback]       = useState<FeedbackData | null>(null)
   const [error, setError]             = useState<string | null>(null)
   const [countdown, setCountdown]     = useState(limitSecs)
+  const [level, setLevel]             = useState(0)
 
   const { seconds, fmt, reset } = useTimer(phase === 'recording')
 
@@ -62,6 +63,47 @@ function SessionInner() {
   const streamRef        = useRef<MediaStream | null>(null)
   const countdownRef     = useRef<ReturnType<typeof setInterval> | null>(null)
   const handleStopRef    = useRef<() => void>(() => {})
+  const audioCtxRef      = useRef<AudioContext | null>(null)
+  const levelRafRef      = useRef<number | null>(null)
+
+  // ── Live mic-level meter — drives the record button's reactive halo ──────
+  const startMeter = (stream: MediaStream) => {
+    try {
+      const Ctx = window.AudioContext
+        || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext
+      const ctx = new Ctx()
+      audioCtxRef.current = ctx
+      const source = ctx.createMediaStreamSource(stream)
+      const analyser = ctx.createAnalyser()
+      analyser.fftSize = 256
+      source.connect(analyser)
+      const data = new Uint8Array(analyser.frequencyBinCount)
+      const loop = () => {
+        analyser.getByteTimeDomainData(data)
+        let sum = 0
+        for (let i = 0; i < data.length; i++) {
+          const v = (data[i] - 128) / 128
+          sum += v * v
+        }
+        const rms = Math.sqrt(sum / data.length)
+        setLevel(Math.min(1, rms * 3.2))
+        levelRafRef.current = requestAnimationFrame(loop)
+      }
+      levelRafRef.current = requestAnimationFrame(loop)
+    } catch (err) {
+      console.warn('Mic meter unavailable:', err)
+    }
+  }
+  const stopMeter = () => {
+    if (levelRafRef.current) cancelAnimationFrame(levelRafRef.current)
+    levelRafRef.current = null
+    audioCtxRef.current?.close().catch(() => {})
+    audioCtxRef.current = null
+    setLevel(0)
+  }
+
+  // Stop the meter if the user leaves mid-recording
+  useEffect(() => () => stopMeter(), [])
 
   // ── Countdown timer ─────────────────────────────────────────────────────
   useEffect(() => {
@@ -79,7 +121,6 @@ function SessionInner() {
       }, 1000)
     }
     return () => {
-	    <PageBrand label="Speaking Practice" />
       if (countdownRef.current) clearInterval(countdownRef.current)
     }
   }, [phase, limitSecs])
@@ -89,6 +130,7 @@ function SessionInner() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
       streamRef.current = stream
+      startMeter(stream)
       const mimeType = MediaRecorder.isTypeSupported('audio/webm') ? 'audio/webm'
         : MediaRecorder.isTypeSupported('audio/ogg') ? 'audio/ogg' : ''
       const recorder = new MediaRecorder(stream, mimeType ? { mimeType } : undefined)
@@ -114,6 +156,7 @@ function SessionInner() {
 
     recorder.onstop = async () => {
       streamRef.current?.getTracks().forEach(t => t.stop())
+      stopMeter()
       const mimeType  = recorder.mimeType || 'audio/webm'
       const audioBlob = new Blob(audioChunksRef.current, { type: mimeType })
       try {
@@ -135,6 +178,7 @@ function SessionInner() {
   handleStopRef.current = handleStop
 
   const handleReset = () => {
+    stopMeter()
     setFeedback(null)
     setError(null)
     setPhase('ready')
@@ -153,6 +197,8 @@ function SessionInner() {
         onMouseEnter={e => (e.currentTarget.style.color = 'hsl(var(--foreground))')}
         onMouseLeave={e => (e.currentTarget.style.color = 'hsl(var(--muted-foreground))')}
       >← Back</Link>
+
+      <PageBrand label="Speaking Practice" />
 
       <AnimatePresence mode="wait">
 
@@ -196,7 +242,7 @@ function SessionInner() {
               )}
             </AnimatePresence>
 
-            <RecordButton state={recordState} onStart={handleStart} onStop={handleStop} />
+            <RecordButton state={recordState} onStart={handleStart} onStop={handleStop} level={level} />
 
             <motion.p key={phase} style={{ marginTop: '2rem', ...ey }}
               initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}

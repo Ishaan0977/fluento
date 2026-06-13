@@ -54,6 +54,10 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
     <>
       {!introShown && <FluentoIntro onComplete={handleIntroComplete} />}
 
+      {/* Brand + theme toggle live in the top-right cluster so they never
+          collide with the per-page "← Back/Home" links, which own the
+          top-left corner. pointerEvents is gated so the transparent header
+          strip doesn't intercept clicks meant for the content below. */}
       <header style={{
         position:       'fixed',
         top:            0,
@@ -62,10 +66,12 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
         zIndex:         50,
         display:        'flex',
         alignItems:     'center',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-end',
+        gap:            '1.5rem',
         padding:        '1.25rem 2.5rem',
         opacity:        showContent ? 1 : 0,
         transition:     'opacity 0.4s ease',
+        pointerEvents:  'none',
       }}>
         <a href="/" style={{
           fontFamily:    'var(--font-display)',
@@ -73,10 +79,13 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           color:         'hsl(var(--foreground))',
           textDecoration: 'none',
           letterSpacing: '-0.01em',
+          pointerEvents: 'auto',
         }}>
           Fluento
         </a>
-        <ThemeToggle />
+        <div style={{ pointerEvents: 'auto' }}>
+          <ThemeToggle />
+        </div>
       </header>
 
       <main style={{
